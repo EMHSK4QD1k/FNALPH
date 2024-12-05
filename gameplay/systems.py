@@ -20,10 +20,6 @@ class Camera:
         screen = pygame.display.get_surface()
         self.font = pygame.font.Font('resources/fonts/five-nights-at-freddys.ttf', 70)
         self.glitch_sound = pygame.mixer.Sound('resources/sounds/Garble1.mp3')
-        if name == "200-600 Intersection":
-            self.flicker = pygame.image.load('resources/misc/intersection_flicker.png').convert_alpha()
-        else:
-            self.flicker = None
         self.background = pygame.image.load(background_path).convert()
         self.background = pygame.transform.scale_by(self.background, screen.get_height()/self.background.get_height())
         self._background = self.background.__copy__()
@@ -41,14 +37,12 @@ class Camera:
         self.active = None
         self.glitch_timer = None
         self.glitch = None
-        self.flicker_counter = None
 
     def start(self):
         self.MAX_GLITCH_TIMER = self.glitch_sound.get_length() * 60
         self.active = False
         self.glitch_timer = 0
         self.glitch = False
-        self.flicker_counter = 1
 
     def stop(self):
         self.reset_background()
@@ -62,32 +56,12 @@ class Camera:
                 self.glitch = False
         if self.active:
             cache = self.background.copy()
-            if self.flicker is not None:
-                if self.get_flicker() == 'dark':
-                    self.background.blit(self.flicker, (0, 0))
             surface.blit(self.background, (offset, 0))
             self.background = cache
             if self.glitch:
                 black = pygame.Surface(surface.get_size())
                 black.fill('black')
                 surface.blit(black, (0, 0))
-
-    def get_flicker(self):
-        if self.flicker_counter > 0:
-            if random.randint(self.flicker_counter, 51) >= 50:
-                self.flicker_counter = -1
-                return 'dark'
-
-            else:
-                self.flicker_counter += 1
-                return 'light'
-
-        elif self.flicker_counter < 0:
-            if random.randint(-51, self.flicker_counter) <= -50:
-                self.flicker_counter = 1
-                return 'light'
-            else:
-                return 'dark'
 
     def small_glitch(self):
         pygame.mixer.find_channel().play(self.glitch_sound)
@@ -133,6 +107,7 @@ class Cameras(System):
         self.camera_pan_sound = pygame.mixer.Sound('resources/sounds/camera_pan.mp3')
         self.font = pygame.font.Font('resources/fonts/five-nights-at-freddys.ttf', 90)
         self.camera_switch_sound = pygame.mixer.Sound('resources/sounds/static.mp3')
+        self.camera_switch_sound.set_volume(1)
         self.animation = Animator(pygame.image.load('resources/animations/Camera_Flip.png').convert_alpha(),
                                   pygame.rect.Rect(0, 0, 1920, 1080),
                                   speed=.5)
@@ -180,7 +155,7 @@ class Cameras(System):
         self.disable_cameras()
         for camera in self.camera_list:
             camera.start()
-        pygame.time.set_timer(pygame.event.Event(CAMERA_ROTATION), 3000)
+        pygame.time.set_timer(pygame.event.Event(CAMERA_ROTATION), 3300)
 
     def stop(self):
         self.active = False
@@ -287,13 +262,13 @@ class Cameras(System):
         match self.rotation_cycle:
             case 0:
                 self.current_rotation = -90
-                self.camera_pan_sound.play(maxtime=3300)
+                self.camera_pan_sound.play(maxtime=3600)
             case 1:
                 self.camera_pan_sound.set_volume(0)
                 self.current_rotation = 90
             case 2:
                 self.current_rotation = 90
-                self.camera_pan_sound.play(maxtime=3300)
+                self.camera_pan_sound.play(maxtime=3600)
             case 3:
                 self.camera_pan_sound.set_volume(0)
                 self.current_rotation = -90
