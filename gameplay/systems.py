@@ -173,6 +173,8 @@ class Cameras(System):
         if event.type == CAMERA_ROTATION:
             self.calculate_rotation()
 
+# This gets really messed up when you flip the reset on night $3@& at $AM
+# We don't have time to patch this. It shouldn't be a problem
     def draw(self):
         if self.active:
             self.camera_pan_sound.set_volume(.2)
@@ -344,6 +346,8 @@ class Cameras(System):
         screen.blit(image, (0, 0))
 
 
+# Crashes the game right now
+# Fix this by the full release
 class RecordIcon:
     def __init__(self, pos: tuple[int, int], radius: int, flash_time: float):
         self.pos = pos

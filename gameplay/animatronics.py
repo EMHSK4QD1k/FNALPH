@@ -204,9 +204,11 @@ class Chica(Animatronic):
     """
     Starts in the lunchroom, moves around the left side and attacks at the left door.
     """
-
+# How long do we have before release?
+# Not long. The bug in systems is our highest priority, so I'm switching you over to that.
+# Am I getting overtime for this?
     def __init__(self, game: any):
-        super().__init__('Chica', game, 4980, CHICA_TIMER, 0)
+        super().__init__('Chica', game, 3980, CHICA_TIMER, 0)
 
     def move(self, position: int) -> None:
         lefty = self._game.animatronics[2]
@@ -233,7 +235,7 @@ class Bonnie(Animatronic):
     """
 
     def __init__(self, game: any):
-        super().__init__('Bonnie', game, 4970, BONNIE_TIMER, 1)
+        super().__init__('Bonnie', game, 3970, BONNIE_TIMER, 1)
 
 
 class Lefty(Animatronic):
@@ -242,7 +244,7 @@ class Lefty(Animatronic):
     """
 
     def __init__(self, game: any):
-        super().__init__('Lefty', game, 3020, LEFTY_TIMER, 0)
+        super().__init__('Lefty', game, 2020, LEFTY_TIMER, 0)
 
     def tick(self, event: pygame.event.Event) -> None:
         if self.active:
@@ -284,7 +286,7 @@ class Knight(Animatronic):
     """
 
     def __init__(self, game: any):
-        super().__init__('Knight', game, 5010, KNIGHT_TIMER, 0)
+        super().__init__('Knight', game, 4010, KNIGHT_TIMER, 0)
         self.primed = False
         self.running = False
         self.locked = False
@@ -363,7 +365,7 @@ class Knight(Animatronic):
 
 class Garble(Animatronic):
     def __init__(self, game: any):
-        super().__init__("Garble", game, 5010, HITCH_TIMER, 0)
+        super().__init__("Garble", game, 4010, HITCH_TIMER, 0)
         self.images = None
         self.img_dict = None
         self.black = pygame.surface.Surface((1920*2, 1080))

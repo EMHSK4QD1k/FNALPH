@@ -56,7 +56,7 @@ class PowerManager:
             if int(frac * 5) > self.reset_count:
                 self.beep_sounds[self.reset_count].play()
                 self.reset_count = int(frac * 5)
-            self.usage.draw_reset(surface, self.reset_count)
+            self.usage.draw_reset(surface, self.s3wObS2VP)
 
     def resize(self):
         self.usage.resize()

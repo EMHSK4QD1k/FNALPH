@@ -23,7 +23,7 @@ class Menu:
         self.buttons = []
         self.parent = None
 
-        self.color = (201, 0, 7)
+        self.color = Menu.red
 
     def start(self):
         pass
@@ -46,7 +46,7 @@ class MainMenu(Menu):
         self.static = []
         for frame in os.listdir('resources/animations/static/'):
             image = pygame.image.load(f'resources/animations/static/{frame}').convert_alpha()
-            image.set_alpha(50)
+            image.set_alpha(30)
             self.static.append(image)
 
         self.save_manager = SaveManager()
@@ -194,7 +194,7 @@ class Options(Menu):
         self.cheat_button.draw(surface)
         self.credits_button.draw(surface)
         self.volume_slider.draw()
-        volume = self.secondary_font.render('Volume', True, self.red)
+        volume = self.secondary_font.render('Volume', True, Menu.red)
         surface.blit(volume, (130, 750))
 
 
@@ -204,8 +204,8 @@ class Credits(Menu):
         border = pygame.Rect(10, 10, 1900, 1060)
         pygame.draw.rect(self.background, self.color, border, 5)
         self.parent = parent
-        self.back_button = Button(self.main_font.render("Back", True, self.red),
-                                  (140, 900), scale=.2, activate=self.back)
+        self.back_button = Button(self.main_font.render("Back", True, Menu.red),
+                                  (140, 900), scale=.2, activate=Menu.back)
 
     def tick(self, event: pygame.event.Event):
         self.back_button.tick(event)
@@ -229,8 +229,8 @@ class Cheat(Menu):
         self.night_input.disable()
         self.night_input.hide()
         self.save_manager = SaveManager()
-        self.back_button = Button(self.main_font.render("Back", True, self.red),
-                                  (140, 900), scale=.2, activate=self.back)
+        self.back_button = Button(self.main_font.render("Back", True, Menu.red),
+                                  (140, 900), scale=.2, activate=Menu.back)
         self.change_background = ToggleButton(self.main_font.render("Background", True, self.color),
                                               (140, 700), scale=.2, activate=self.go_background,
                                               deactivate=self.end_background)

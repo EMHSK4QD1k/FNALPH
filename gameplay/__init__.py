@@ -1,6 +1,7 @@
 """
 All the logic and classes for gameplay within Five Nights at Lone Peak.
 This will probably only work on windows.
+Once we get the full release out we can port it to other systems
 """
 from .systems import (
     Camera,

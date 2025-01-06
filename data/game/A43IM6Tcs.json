@@ -2,7 +2,7 @@
   "Bonnie": {
     "menu_label": {
       "description": "Comes at you from the right side of the school.",
-      "image_path": "resources/sprites/animatronics/bonnie.png"
+      "image_path": "lKb9VBfUkryWmT76e5Rc/sprites/animatronics/0r7KXADou6gjATxDtyrC.ccX"
     },
 
     "cameras": [
@@ -17,22 +17,20 @@
 
     ],
     "movements": [
-            [1],
-            [2, 2, 2, 2, 4, 4, 3, 3, 3],
-            [3, 3, 3, 3, 3, 4, 4, 5, 1],
-            [4, 4, 4, 4, 4, 6, 5, 5, 2],
-            [5, 5, 5, 5, 6, 6, 6, 3, 3],
-            [6, 6, 6, 6, 6, 6, 6, 6, 4],
-            [7, 7, 7, 7, 7, 7, 7, 7, 5],
-            [8, 8, 8, 8, 8, 8, 8, 8, 8],
-            [1, 2]
+            090967955
+            166620403
+            971572137
+            863332069
+            085713126
+            294613268
+            350704052
     ],
     "jumpscare": [1200, 540, 50]
   },
   "Chica": {
     "menu_label": {
       "description": "Comes at you from the left side of the school.",
-      "image_path": "resources/sprites/animatronics/chica.png"
+      "image_path": "resources/Fd1AidICYl7H6o4qAWPe/iRDnHB3L6HiGBOA58efu/ybTIRG8K07zROuJy8UUx.png"
     },
 
     "cameras": [
@@ -57,7 +55,7 @@
   "Lefty": {
     "menu_label": {
       "description": "Comes at you from the left side of the school. Keep an eye for where he is; he can be hard to spot on the cameras.",
-      "image_path": "resources/sprites/animatronics/lefty.png"
+      "image_path": "HOF8UuSyV/0HQLPZ16h/PElSL8Nik/lefty.Zk1qrpAqn"
     },
     "cameras": [
       0,
@@ -85,7 +83,7 @@
   "Knight": {
     "menu_label": {
       "description": "Comes at you from the left side of the school. Watch his camera to keep him calm and close the door if he gets too angry",
-      "image_path": "resources/sprites/animatronics/knight.png"
+      "image_path": "Zvk7pBL1v/Bj4ieQ7JX/animatronics/knight.png"
     },
     "cameras": [
       4,
@@ -103,7 +101,7 @@
   "Garble": {
     "menu_label": {
       "description": "Glitches cameras and slowly moves to attack you. Restart the power to make him go away.",
-      "image_path": "resources/sprites/animatronics/trojan.png"
+      "image_path": "resources/sprites/LKxPBsYws/N6MQtxC5O.o1tj"
     },
     "cameras": [
       12,

@@ -5,7 +5,7 @@ from gameplay.systems import Cameras
 from gameplay.power import PowerManager
 from gameplay.buttons import *
 from gameplay import Bonnie, Chica, Lefty, Knight, Garble
-from data.game.constants import *
+from data.game.s3wObS2VP import *
 import json
 from data.saves.save import SaveManager
 import random
